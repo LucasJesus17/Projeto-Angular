@@ -1,0 +1,60 @@
+<h1>Departamentos</h1>
+
+<div *ngIf="departamentoSelecionado">
+    <form action="">
+        <div class="id">
+          <label>Id</label>
+          <input type="number" id="Id" value="{{departamentoSelecionado.id}}"  disabled="true">
+        </div>
+      
+        <div class="nome">
+          <label>Nome</label>
+          <input type="text" id="Nome" value="{{departamentoSelecionado.nome}}">
+        </div>
+      
+        <div>
+          <label class="sigla">Sigla</label>
+          <input type="text" id="RG" value="{{departamentoSelecionado.sigla}}" >
+        </div>
+        
+        <div>
+            <div class="sigla" >
+              <button type="submit" class=" btn btn-primary" >Salvar</button>
+              <button class=" btn btn-danger"(click)="voltar">Cancelar</button>
+          </div>
+          </div>
+        
+        </form>   
+
+
+</div>
+
+<div *ngIf = "!departamentoSelecionado">
+
+<table class="table table-striped">
+    <tbody>
+        <tr>
+           <th>#</th>
+           <th>Nome</th>
+           <th>Sigla</th>
+           <th>Opções</th>
+        </tr>
+    </tbody>
+
+    <tbody>
+    <tr *ngFor="let departamento of departamentos">
+        <td>{{departamento.id}}</td>
+        <td>{{departamento.nome}}</td>
+        <td>{{departamento.sigla}}</td>
+        <td><div class="btn-group" >
+            <button class=" btn btn-primary" >Adicionar</button>
+            <button class=" btn btn-warning" (click)="departamentoSelect(departamento)">Alterar</button>
+            <button class=" btn btn-danger">Deletar</button>
+        </div>
+        </td>  
+    </tr>
+        
+    </tbody>
+
+  </table>
+</div>

@@ -1,0 +1,134 @@
+<h1>Funcionarios</h1>
+
+<!--
+  Adicionar Funcionario
+
+  Formulario que cadastro o Funcionario
+
+-->
+<div *ngIf="adicionarFuncionario">
+  <form [formGroup]="funcionarioForm" (submit)="enviar()">
+    <div class="campo">
+      <label>Id</label>
+      <input type="number" id="Id" value="{{funcionarioSelecionado.id}}">
+    </div>
+  
+    <div class="nome">
+      <label>Nome</label>
+      <input type="text" id="Nome" formControlName="nome" required>
+    </div>
+  
+    <div>
+      <label class="campo">RG</label>
+      <input type="text" id="RG" formControlName="RG" required>
+    </div>
+  
+    <div class="departamento">
+      <label>Codigo do Departamento</label>
+      <input type="number" id="Departamento" value="{{funcionarioSelecionado.departamento}}" required>
+    </div>
+  
+    <div class="campo">
+      <Label>Foto</Label>
+      <input type="image" src="" id="Foto" formControlName="foto">
+    </div>
+  
+    <div>
+      <div class="campo" >
+        <button type="submit" class=" btn btn-primary" >Salvar</button>
+        <button class=" btn btn-danger" (click)="voltar">Cancelar</button>
+
+    </div>
+    </div>
+  
+  </form>         
+</div>
+
+
+<!-- Alterar Funcionarios
+
+    Formulario para alteração de funcionarios -->
+
+    <div *ngIf = "funcionarioSelecionado">
+      <form [formGroup]="funcionarioForm" >
+        <div class="campo">
+          <label>Id</label>
+          <input type="number" id="Id" value="{{funcionarioSelecionado.id}}"  disabled="true">
+        </div>
+      
+        <div class="nome">
+          <label>Nome</label>
+          <input type="text" id="Nome" formControlName="nome">
+        </div>
+      
+        <div>
+          <label class="campo">RG</label>
+          <input type="text" id="RG" formControlName="RG" >
+        </div>
+      
+        <div class="departamento">
+          <label>Codigo do Departamento</label>
+          <input type="number" id="Departamento" value="{{funcionarioSelecionado.departamento}}" disabled="true" >
+        </div>
+      
+        <div class="campo">
+          <Label>Foto</Label>
+          <input type="image" src="" id="Foto" formControlName="foto">
+        </div>
+      
+        <div>
+          <div class="campo" >
+            <button type="submit" class=" btn btn-primary" (click)="enviar()">Salvar</button>
+            <button class=" btn btn-danger" (click)="voltar()">Cancelar</button>
+
+        </div>
+        </div>
+      
+      </form>         
+    </div>
+
+    <!-- Listar Funcionarios
+
+    Formulario para Lista de funcionarios -->
+
+<div *ngIf="!funcionarioSelecionado && !adicionarFuncionario">
+
+<div class="adicionar">
+  <div>Adicionar novo</div>
+  <button class=" btn btn-warning" (click)="addFuncionario(adicionar)" >Adicionar</button>
+</div>
+
+  <table class="table table-striped">
+    <tbody>
+        <tr>
+           <th scope="row">#</th>
+           <th scope="row">Nome</th>
+           <th scope="row">Foto</th>
+           <th scope="row">RG</th>
+           <th scope="row">Departamento</th>
+           <th scope="row">Opções</th>
+
+        </tr>
+    </tbody>
+
+    <tbody>
+    <tr *ngFor="let funcionario of funcionarios" style="cursor: pointer; " >
+        <td>{{funcionario.id}}</td>
+        <td>{{funcionario.nome}}</td>
+        <td>{{funcionario.foto}}</td>
+        <td>{{funcionario.RG}}</td>
+        <td>{{funcionario.departamento}}</td>
+        <td>
+            <button class=" btn btn-primary" (click)="funcionarioSelect(funcionario)">Alterar</button>
+            <button class=" btn btn-danger">Deletar</button>
+        </td>  
+    </tr>
+
+
+    </tbody>
+
+  </table>
+
+</div>
+
+
