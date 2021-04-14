@@ -2,10 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\Projeto-Angular",
-    "\\Projeto-Angular\\API",
-    "\\Projeto-Angular\\API\\bin\\Debug\\netcoreapp3.1",
-    "\\Projeto-Angular\\API\\bin\\Release",
-    "\\Projeto-Angular\\Projeto-Angular\\src\\app"
+    "\\Projeto-Angular\\WebAPI",
+    "\\Projeto-Angular\\WebAPI\\bin",
+    "\\Projeto-Angular\\WebAPI\\Data"
   ],
+  "SelectedNode": "\\Projeto-Angular",
   "PreviewInSolutionExplorer": false
 }
